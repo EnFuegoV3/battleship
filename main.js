@@ -1,24 +1,21 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { ships } from './shipFactory'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const carrier1 = ships("carrier1", 5);
+const battleship1 = ships("battleship1", 4);
+const cruiser1 = ships("cruiser1", 3);
+const submarine1 = ships("submarine1", 3);
+const destroyer1 = ships("destroyer1", 2);
 
-setupCounter(document.querySelector('#counter'))
+const carrier2 = ships("carrier2", 5);
+const battleship2 = ships("battleship2", 4);
+const cruiser2 = ships("cruiser2", 3);
+const submarine2 = ships("submarine2", 3);
+const destroyer2 = ships("destroyer2", 2);
+
+// console.log(carrier2);
+
+// carrier2.hit(cruiser1);
+// carrier2.hit(cruiser1);
+// carrier2.hit(cruiser1);
+// console.log(cruiser1.health);
