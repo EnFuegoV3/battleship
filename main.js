@@ -13,9 +13,10 @@ const cruiser2 = ships("cruiser2", 3);
 const submarine2 = ships("submarine2", 3);
 const destroyer2 = ships("destroyer2", 2);
 
-// console.log(carrier2);
+console.log(carrier1.hit(carrier2));
 
 // carrier2.hit(cruiser1);
 // carrier2.hit(cruiser1);
 // carrier2.hit(cruiser1);
 // console.log(cruiser1.health);
+export { carrier1, carrier2 };
