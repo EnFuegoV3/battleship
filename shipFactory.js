@@ -7,15 +7,15 @@ export const ships = (name, length) => {
         
     };
 
-    const hit = (boat) => {
-            boat.health -= 1;
+    const hit = (ship) => {
+            ship.health -= 1;
             
-            if(boat.health === 0) {
-                console.log(`your ${boat.name} has been sunk`);
+            if(ship.health === 0) {
+                console.log(`your ${ship.name} has been sunk`);
                 
-                return boat.sunk = true;
+                return ship.sunk = true;
             }
-            return boat.health;
+            return ship.health;
     };
 
     return {name, health, hit, sunk};
