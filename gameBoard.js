@@ -17,13 +17,15 @@ export function gameBoard() {
     ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7', 'i8', 'i9', 'i10'],
     ['j1', 'j2', 'j3', 'j4', 'j5', 'j6', 'j7', 'j8', 'j9', 'j10'],
     ];
-     
 
-    const placement = (boat, coords) => {
-        coords = []
-        gridArr[0][0] = boat; 
-        gridArr[0][1] = boat;
-        gridArr[0][2] = boat;
+    const placement = (boat, a, b, c, d, e) => {
+        for(let i = 0; i < gridArr.length; i++) {
+            for(let j = 0; j < gridArr[i].length; j++) {
+                if(gridArr[i][j] == a || gridArr[i][j] == b || gridArr[i][j] == c || gridArr[i][j] == d || gridArr[i][j] == e) {
+                    gridArr[i][j] = boat;
+                }
+            }
+        };
     };
 
     const attack = (player, x, y) => {
