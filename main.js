@@ -45,13 +45,19 @@ function grid() {
 
 
 
-player1.placement(cruiser1, "a1", "a2", "a3");
-// player2.placement(cruiser2);
+// player2.placement(cruiser1, "a1", "a2", "a3");
+player2.compPlacement(cruiser2);
+player2.compPlacement(submarine2);
+player2.compPlacement(battleship2);
+player2.compPlacement(destroyer2);
+player2.compPlacement(carrier2);
 // player1.attack(player2, 0, 0);
 // player1.attack(player2, 0, 1);
-// player1.attack(player2, 0, 2);
-console.log(player1)
-console.log(cruiser2);
+// player1.attack(player2, 0, 4);
+console.log(player2)
+// console.log(cruiser2);
+
+
 
 
 // console.log(carrier1.hit(carrier2));

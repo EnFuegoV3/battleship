@@ -28,6 +28,18 @@ export function gameBoard() {
         };
     };
 
+    // const attack = (player, x, y) => {
+    //     if (player.gridArr[x][y] == !Object) {
+    //         console.log("you missed");
+    //         player.gridArr[x][y] = "o";
+    //     } else {
+    //         let ship = player.gridArr[x][y];
+    //         console.log("you've hit a ship");
+    //         // ship.hit(ship);
+    //         console.log(ship);
+    //     }
+    // } 
+
     const attack = (player, x, y) => {
         if (player.gridArr[x][y].length === 2) {
             console.log("you missed");
@@ -40,5 +52,68 @@ export function gameBoard() {
         }
     } 
 
-    return {placement, gridArr, attack};
-};
+
+    // const compPlacement = (boat) => {
+    //     let random = gridArr[Math.floor(Math.random() * gridArr.length)];
+    //     if(boat.health == 2) {
+    //         let firstIndex = random[Math.floor(Math.random() * random.length)];
+    //         if (random.indexOf(firstIndex) === 9 || firstIndex == Object){
+    //             console.log("ERROR")
+    //             return compPlacement(boat);
+    //         } else{
+    //                 let secondIndex = gridArr[gridArr.indexOf(random)][random.indexOf(firstIndex) + 1];
+    //                 placement(boat, firstIndex, secondIndex);
+    //                 };
+    //     } else if (boat.health == 3) {
+    //         let firstIndex = random[Math.floor(Math.random() * random.length)];
+    //         if (random.indexOf(firstIndex) >= 8 || firstIndex == Object){
+    //             console.log("ERROR")
+    //             return compPlacement(boat);
+    //         } else{
+    //                 let secondIndex = gridArr[gridArr.indexOf(random)][random.indexOf(firstIndex) + 1];
+    //                 let thirdIndex = 
+    //                 placement(boat, firstIndex, secondIndex);
+    //                 };
+    //     } 
+    // }
+
+    const compPlacement = (boat) => {
+        let random = gridArr[Math.floor(Math.random() * gridArr.length)];
+        let firstIndex = random[Math.floor(Math.random() * random.length)];
+        let secondIndex = gridArr[gridArr.indexOf(random)][random.indexOf(firstIndex) + 1];
+        let thirdIndex = gridArr[gridArr.indexOf(random)][random.indexOf(secondIndex) + 1];
+        let fourthIndex = gridArr[gridArr.indexOf(random)][random.indexOf(thirdIndex) + 1];
+        let fifthIndex = gridArr[gridArr.indexOf(random)][random.indexOf(fourthIndex) + 1];
+        if(boat.health == 2) {
+            if(random.indexOf(firstIndex) === 9 || firstIndex.length !== 2) {
+                console.log('ERROR');
+                 return compPlacement(boat);
+            } else {
+                placement(boat, firstIndex, secondIndex);
+            }
+        } else if(boat.health == 3) {
+            if(random.indexOf(firstIndex) >= 8 || (firstIndex.length && thirdIndex.length !== 2)) {
+                console.log('ERROR');
+                 return compPlacement(boat);
+            } else {
+                placement(boat, firstIndex, secondIndex, thirdIndex);
+            }
+        } else if(boat.health == 4) {
+            if(random.indexOf(firstIndex) >= 7 || (firstIndex.length && thirdIndex.length && fourthIndex.length !== 2)) {
+                console.log('ERROR');
+                 return compPlacement(boat);
+            } else {
+                placement(boat, firstIndex, secondIndex, thirdIndex, fourthIndex);
+            }
+        } else if(boat.health == 5) {
+            if(random.indexOf(firstIndex) >= 6 || (firstIndex.length && thirdIndex.length && fifthIndex.length !== 2)) {
+                console.log('ERROR');
+                 return compPlacement(boat);
+            } else {
+                placement(boat, firstIndex, secondIndex, thirdIndex, fourthIndex, fifthIndex);
+            }
+        }    
+    }
+
+    return {placement, gridArr, attack, compPlacement};
+}
