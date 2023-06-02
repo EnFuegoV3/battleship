@@ -17,6 +17,24 @@ import { gameBoard } from './gameBoard';
 
 // const gridArr = [...Array(10)].map(e => Array(10));
 
+
+function grid(board, player) {
+    const container = document.querySelector(`.${board}`);
+    container.style.gridTemplateRows = 'repeat(10, auto)';
+    container.style.gridTemplateColumns = 'repeat(10, auto)';
+    for(let n = 0; n < player.gridArr.length; n++) {
+        for(let i = 0; i < player.gridArr[n].length; i++) {
+            let squares = document.createElement('div');
+            squares.classList.add('grid');
+            squares.textContent = player.gridArr[n][i];
+            squares.setAttribute('id', player.gridArr[n][i]);
+            container.appendChild(squares);
+            
+        }
+    }
+};
+
+
 let player1 = gameBoard();
 let player2 = gameBoard();
 
@@ -32,21 +50,36 @@ const cruiser2 = ships("cruiser2", 3);
 const submarine2 = ships("submarine2", 3);
 const destroyer2 = ships("destroyer2", 2);
 
-function grid() {
-    const container = document.querySelector('#container');
-    container.style.gridTemplateRows = `repeat(10, auto)`;
-    container.style.gridTemplateColumns = `repeat(10, auto)`;
-    for(let n = 0; n < (10 * 10); n++) {
-        let squares = document.createElement('div');
-        container.appendChild(squares);
-    }
-};
 
 
+
+
+
+
+grid('player-board', player1);
+grid('computer-board', player2);
 
 
 player1.placement(carrier1, "a1", "a2", "a3", "a4", "a5");
+player1.placement(battleship1, "f5", 'f6', 'f7', 'f8');
+player1.placement(cruiser1, "h9", 'i9', 'j9');
+player1.placement(submarine1, "d1", 'e1', 'f1');
+player1.placement(destroyer1, "j4", 'j5');
 
+player2.placement(carrier2, 'a1', 'b1', 'c1', 'd1', 'e1');
+player2.placement(battleship2, 'e3', 'e4', 'e5', 'e6');
+player2.placement(cruiser2, 'g9', 'h9', 'i9');
+player2.placement(submarine2, 'b6', 'b7', 'b8');
+player2.placement(destroyer2, 'i2', 'i3');
 
+const computerBoard = document.querySelectorAll('.computer-board > div');
+
+computerBoard.forEach(div => {
+    div.addEventListener('click', (e) => {
+        console.log('hello');
+    })
+})
+
+console.log(player1.gridArr, player2.gridArr);
 
 
