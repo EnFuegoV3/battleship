@@ -38,3 +38,15 @@ body {
   vertical-align: middle;
   font-size: .8rem;
 }
+
+.hit {
+  background-color: rgba(255, 0, 0, 0.219);
+}
+
+.miss {
+  background-color: rgba(32, 178, 171, 0.274);
+}
+
+.ship {
+  background-color: rgba(20, 155, 20, 0.349);
+}

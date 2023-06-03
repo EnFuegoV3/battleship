@@ -4,6 +4,8 @@ import { ships } from "./shipFactory";
 
 export function gameBoard() {
 
+    
+
     // let gridArr = [...Array(10)].map(e => Array(10))
     const gridArr = [
     ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10'],
