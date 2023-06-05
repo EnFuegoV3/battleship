@@ -118,13 +118,19 @@ computerBoard.forEach(div => {
         }
         setTimeout(() => {
             player2.compAttack(player1, player2);
-            container1.innerHTML = '';
-            player1Grid();
+            
+            
         }, 1400);
     })
 })
 
-console.log(player1.gridArr, player2.gridArr);
+if(carrier1.sunk == true && battleship1.sunk == true && cruiser1.sunk == true && submarine1.sunk == true && destroyer1.sunk == true){
+    alert("you lost");
+} else if(carrier2.sunk == true && battleship2.sunk == true && cruiser2.sunk == true && submarine2.sunk == true && destroyer2.sunk == true){
+    alert('you won');
+}
+
+console.log(carrier1.sunk);
 
 
 
